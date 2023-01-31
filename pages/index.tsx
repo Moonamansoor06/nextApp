@@ -2,8 +2,8 @@
 
 import Typography from "@mui/material/Typography";
 import React, { useEffect, useState } from "react";
-import TodoForm from "./components/todoForm";
-import TodoList from "./components/todoList";
+import TodoForm from "../components/todoForm";
+import TodoList from "../components/todoList";
 
 const LOCAL_STORAGE_KEY = "next-todo-list-todos";
 
@@ -33,9 +33,11 @@ useEffect(() => {
   }
 
   function toggleComplete(id) {
+    console.log(id)
     setTodos(
       todos.map(todo => {
         if (todo.id === id) {
+          console.log(todo.id === id)
           return {
             ...todo,
             completed: !todo.completed
@@ -53,7 +55,7 @@ useEffect(() => {
   return (
     <div className="App">
       <Typography style={{ padding: 16 }} variant="h1">
-        React Todo
+        Next Todo
       </Typography>
       <TodoForm addTodo={addTodo} />
       <TodoList
